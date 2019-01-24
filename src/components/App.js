@@ -1,9 +1,15 @@
 import React from 'react';
+import axios from 'axios';
 import SearchBar from './SearchBar';
 
 class App extends React.Component {
     onSearchSubmit(term) {
-        console.log(term);
+        axios.get('https://api.unsplash.com/search/photos', {
+            params: { query: term },
+            headers: {
+                Authorization: 'Client-ID 0f2b92c71f0cb44bf0bf96da2119494dad1af7ec05c1a5a88ade01359162ea13'
+            }
+        });
     }
 
     render() {
@@ -23,3 +29,9 @@ export default App;
 // but it's better to name it something close to it's purpose. 
 // onSubmit here is to be able to pass properties with a trick to let App
 // pass down props to SearchBar
+
+
+// 0f2b92c71f0cb44bf0bf96da2119494dad1af7ec05c1a5a88ade01359162ea13
+
+// secret key
+// 593b0089e94ec748874e75b5687dd10a5174836228a20fc7999e40baad6fba1f
